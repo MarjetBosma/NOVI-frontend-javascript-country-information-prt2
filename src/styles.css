@@ -1,0 +1,109 @@
+/* Ik heb de vormgeving eenvoudig gehouden, en in lijn met het eerste deel van de opdracht, aangezien ik al behoorlijk veel tijd kwijt was met het schrijven van de logica. */
+
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Roboto+Condensed:wght@300&display=swap');
+
+/* CSS reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Algemene styling */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Gochi Hand', cursive;
+    margin-top: 40px;
+}
+
+
+/* Styling per onderdeel */
+
+#spinning-globe {
+    width: 300px;
+    margin: 30px;
+}
+
+#country-searcher-link {
+    text-decoration: none;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 30px;
+    color: black;
+    padding-top: 60px;
+}
+
+#country-searcher-link:hover {
+    color: dimgrey;
+}
+
+#search-country-form {
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    padding: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    border: 1px solid dimgrey;
+    background-color: ghostwhite;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    border: 1px solid dimgrey;
+    border-radius: 4px;
+}
+
+.search-result-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid dimgrey;
+    background-color: ghostwhite;
+    border-radius: 4px;
+    margin-block: 60px;
+}
+
+.flag-name-container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+#flag-image {
+    width: 40px;
+    margin: 10px;
+}
+
+#country-name {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 30px;
+    margin: 10px;
+}
+
+#country-description-container {
+    margin-inline: 20px;
+    margin-bottom: 20px;
+}
+
+.country-description {
+    padding: 10px;
+}
+
+.error-message {
+    color: red;
+    padding-inline: 20px;
+    padding-top: 10px;
+}
