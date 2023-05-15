@@ -78,24 +78,8 @@ function createCurrencyDescription(currencies) {
 // Bonusopdracht
 
 function createLanguageDescription(languages) {
-    // Zorgt voor de juiste output in de derde <p> bij de functie showCountry, omdat languages een array is die verschilt in lengte per land.
-    let output = 'They speak ';
-
-    for (let i = 0; i < languages.length; i++) {
-        if (languages.length === 1) {
-            return output += languages[i].name; // Als er maar één entry is, alleen de taal toevoegen; return statement stopt de loop dan.
-        }
-        if (i === languages.length - 1) {
-            return output += " and " + languages[i].name; // Bij laatste entry moet er "and" voor, return statement stopt de loop dan.
-        }
-        if (languages.length === 2 || languages.length === 1 || i === languages.length - 2) {  // Array bevat twee entries of het betreft de een-na-laatste entry
-            output += languages[i].name // Alleen de taal toevoegen
-        }
-        else {
-            output += languages[i].name + ", ";  // Komma en spatie toevoegen
-        }
-    }
-    return output
+    const [lastLanguage, ...otherLanguages] = languages;
+    return `They speak ${languages.length > 1 ? `${otherLanguages.join(", ")} and ${lastLanguages}` : lastLanguage}`;
 }
 // Mogelijk kan bovenstaande functie korter, maar ik vond het al ingewikkeld genoeg om alle mogelijke opties te bedenken en zo uit te schrijven dat het bij allemaal correct wordt weergegeven.
 
