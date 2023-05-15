@@ -1,0 +1,101 @@
+@import "https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Roboto+Condensed:wght@300&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  flex-direction: column;
+  align-items: center;
+  font-family: Roboto Condensed, sans-serif;
+  display: flex;
+}
+
+h1 {
+  margin-top: 40px;
+  font-family: Gochi Hand, cursive;
+  font-size: 50px;
+}
+
+#spinning-globe {
+  width: 300px;
+  margin: 30px;
+}
+
+#country-searcher-link {
+  color: #000;
+  padding-top: 60px;
+  font-family: Gochi Hand, cursive;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+#country-searcher-link:hover {
+  color: #696969;
+}
+
+#search-country-form {
+  flex-direction: row;
+  display: flex;
+}
+
+input {
+  background-color: #f8f8ff;
+  border: 1px solid #696969;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: Roboto Condensed, sans-serif;
+  font-size: 16px;
+}
+
+button {
+  border: 1px solid #696969;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: Roboto Condensed, sans-serif;
+  font-size: 16px;
+}
+
+.search-result-container {
+  background-color: #f8f8ff;
+  border: 1px solid #696969;
+  border-radius: 4px;
+  flex-direction: column;
+  margin-block: 60px;
+  display: flex;
+}
+
+.flag-name-container {
+  flex-direction: row;
+  margin: 20px;
+  display: flex;
+}
+
+#flag-image {
+  width: 40px;
+  margin: 10px;
+}
+
+#country-name {
+  margin: 10px;
+  font-family: Gochi Hand, cursive;
+  font-size: 30px;
+}
+
+#country-description-container {
+  margin-inline: 20px;
+  margin-bottom: 20px;
+}
+
+.country-description {
+  padding: 10px;
+}
+
+.error-message {
+  color: red;
+  padding-inline: 20px;
+  padding-top: 10px;
+}
+
+/*# sourceMappingURL=index.4d663569.css.map */

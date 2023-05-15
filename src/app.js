@@ -1,5 +1,3 @@
-// Ik had eerst beide delen van de opdracht in één bestand en repository staan, zodat het een website met twee pagina's was, maar dat werd toch wat onoverzichtelijk en foutgevoelig, dus later heb ik dit toch gescheiden. Uiteraard is deel 1 ook nog terug te vinden op GitHub.
-
 import axios from 'axios';
 
 // Global variables
@@ -37,19 +35,19 @@ async function fetchCountryDetails(name) {
 
 // Onderstaande functie geeft de informatie over het opgevraagde land weer op de pagina; wordt aangeroepen in try-blok hierboven, waar het country-object beschikbaar is
 
-function showCountry({name, flag, subregion, population, capital, currencies, languages}) {
+function showCountry({ name, flag, subregion, population, capital, currencies, languages }) {
     countryInfoContainer.innerHTML = `
 <article class="search-result-container">
     <span class="flag-name-container">
-        <img id="flag-image" src="${country.flag}" alt="Flag"/>
-        <h3 id="country-name">${country.name}</h3>
+        <img id="flag-image" src="${flag}" alt="Flag"/>
+        <h3 id="country-name">${name}</h3>
     </span>
     <div id="country-description-container">
-        <p class="country-description">${country.name} is situated in ${country.subregion}. 
-        It has a population of ${country.population} people.</p>
-        <p class="country-description">The capital is ${country.capital} 
-        ${createCurrencyDescription(country.currencies)}.</p>
-        <p class="country-description">${createLanguageDescription(country.languages)}.</p>
+        <p class="country-description">${name} is situated in ${subregion}. 
+        It has a population of ${population} people.</p>
+        <p class="country-description">The capital is ${capital} 
+        ${createCurrencyDescription(currencies)}.</p>
+        <p class="country-description">${createLanguageDescription(languages)}.</p>
     </div>
 </article>
 `;
@@ -76,12 +74,33 @@ function createCurrencyDescription(currencies) {
 }
 
 // Bonusopdracht
-
 function createLanguageDescription(languages) {
-    const [lastLanguage, ...otherLanguages] = languages;
-    return `They speak ${languages.length > 1 ? `${otherLanguages.join(", ")} and ${lastLanguages}` : lastLanguage}`;
+    // Zorgt voor de juiste output in de derde <p> bij de functie showCountry, omdat languages een array is die verschilt in lengte per land.
+    let output = 'They speak ';
+
+    for (let i = 0; i < languages.length; i++) {
+        if (languages.length === 1) {
+            return output += languages[i].name; // Als er maar één entry is, alleen de taal toevoegen; return statement stopt de loop dan.
+        }
+        if (i === languages.length - 1) {
+            return output += " and " + languages[i].name; // Bij laatste entry moet er "and" voor, return statement stopt de loop dan.
+        }
+        if (languages.length === 2 || languages.length === 1 || i === languages.length - 2) {  // Array bevat twee entries of het betreft de een-na-laatste entry
+            output += languages[i].name // Alleen de taal toevoegen
+        } else {
+            output += languages[i].name + ", ";  // Komma en spatie toevoegen
+        }
+    }
+    return output
 }
+
 // Mogelijk kan bovenstaande functie korter, maar ik vond het al ingewikkeld genoeg om alle mogelijke opties te bedenken en zo uit te schrijven dat het bij allemaal correct wordt weergegeven.
+// Update: Hieronder de suggestie van de reviewer. Helaas kreeg ik hiermee om een of andere reden niet de juiste output in de browser. Er stond "They speak [object Object]." Ik kreeg niet gevonden waar dit aan lag, dus toen heb ik toch mijn eigen functie weer teruggeplaatst, die wel de juiste output geeft.
+
+// function createLanguageDescription(languages) {
+//   const [lastLanguage, ...otherLanguages] = languages;
+//     return `They speak ${languages.length > 1 ? `${otherLanguages.join(", ")} and ${lastLanguages}` : lastLanguage}`;
+//  }
 
 // Event listeners
 searchCountryForm.addEventListener('submit', searchCountry);
