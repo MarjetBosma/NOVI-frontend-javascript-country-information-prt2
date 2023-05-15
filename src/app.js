@@ -37,7 +37,7 @@ async function fetchCountryDetails(name) {
 
 // Onderstaande functie geeft de informatie over het opgevraagde land weer op de pagina; wordt aangeroepen in try-blok hierboven, waar het country-object beschikbaar is
 
-function showCountry(country) {
+function showCountry({name, flag, subregion, population, capital, currencies, languages}) {
     countryInfoContainer.innerHTML = `
 <article class="search-result-container">
     <span class="flag-name-container">
